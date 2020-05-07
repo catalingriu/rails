@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card card-body bg-light">
+        <div class='container'>
+          <div class="card-body">
+          <h2 class="card-title">Manage Platforms <%= link_to  "Add new", new_admin_platform_path, class: 'btn btn-success' %></h2>
+          
+            
+            <table class="table table-striped">
+                <tr>
+                  <th>Platform </th>
+                  <th>Created at</th>
+                  <th>Actions </th>
+                </tr>
+                <% @platforms.each do |platform| %>
+                  <tr>
+                    <td><%= platform.name %></td>
+                    <td><%= platform.created_at.to_time.in_time_zone("Europe/Bucharest").strftime('%d %b %Y at %H:%M')  %></td>
+                    <td><%= link_to 'Edit', edit_admin_platform_path(platform), class:'btn btn-primary'%>
+                        <%= link_to 'Destroy', admin_platform_path(platform), method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %>
+                    </td>
+                    
+                  </tr>
+                <% end %>
+            </table>
+            <%=will_paginate @platforms%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

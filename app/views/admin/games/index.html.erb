@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card card-body bg-light">
+      <div class='container'>
+        <div class="card-body">
+          <h2 class="card-title">Manage Games <%= link_to  "Add new", new_admin_game_path, class: 'btn btn-success' %></h2>
+          <table class="table table-striped">
+              <tr>
+                <th>Game </th>
+                <th>Added At</th>
+                <th>Actions </th>
+              </tr>
+              <% @games.each do |game| %>
+                <tr>
+                  <td><%= game.name %></td>
+                  <td><%= game.created_at.to_time.in_time_zone("Europe/Bucharest").strftime('%d %b %Y at %H:%M')%></td>
+                  <td><%= link_to 'View', admin_game_path(game), class:'btn btn-success'%>
+                      <%= link_to 'Edit', edit_admin_game_path(game), class:'btn btn-primary' %>
+                      <%= link_to 'Destroy', admin_game_path(game), method: :delete, data: { confirm: "  Are you sure? \n  (The history of this game will be deleted)" }, class:'btn btn-danger' %>
+                      <%= link_to 'Hide', admin_hide_path(game), class: 'btn btn-primary' %>
+                  </td>
+                  
+                </tr>
+              <% end %>
+          </table>
+          <%=will_paginate @games%>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+

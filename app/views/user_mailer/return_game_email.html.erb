@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3>Dear, <%= @loan.user.email %></h3>
+    <p>
+      We hope you had a great time playing <b> <%=@loan.game.name%> </b><br>
+    </p>
+    <p>
+        Unfortunately your <b> loan period ends in <%=time_ago_in_words(@loan.started_at+Loan.till_retrieve)%> </b> (at <%=@loan.started_at+Loan.till_retrieve%>), when it will be automatically returned! 
+    </p>
+    <p>
+        If you don't want to lose your progress you can extend the loan or you can buy the game.
+    </p>
+    <p>Thanks for your atention and have a great day!</p>
+    <%=  link_to  "Click here to return the game", "http://localhost:3000/games/"+@loan.game.id.to_s+"/return", class: 'btn btn-primary'%>
+  </body>
+</html>

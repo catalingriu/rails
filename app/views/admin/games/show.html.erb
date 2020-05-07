@@ -1,0 +1,49 @@
+<div id="games-show">
+    <div class="row header">
+        <div class="col-md-7">
+            <h3 id="page_title"><%=@game.name%></h3>
+        </div>
+        <div class="col-md-5">
+            <%= link_to  "Edit", edit_admin_game_path(@game), class: 'btn btn-outline-success btn-lg btn-block', id: 'btn_borrow' %>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-7" id="coloana_pt_trailer">
+            <div id="div_pt_trailer">
+                <iframe src="<%='https://www.youtube.com/embed/' + @game.trailer + '?autoplay=1&mute=1'%>" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="col-md-5" id="coloana_descriere_totala">
+            <div class="row">
+                <div class="col-md-8">
+                    <p>
+                        <strong>Year:</strong>
+                        <%= @game.year %>
+                    </p>
+                    <p>
+                        <strong>Platforms:</strong>
+                        <% @game.platforms.each do |platform|%>
+                            <%= platform.name%>
+                        <%end%>
+                    </p>
+                </div>
+                <div class=" col-md-4">
+                    <%= image_tag @game.avatar.url %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                    <strong>About:</strong>
+                    </p>
+                    <%= @game.about %>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<%= link_to 'Back', admin_games_path %>

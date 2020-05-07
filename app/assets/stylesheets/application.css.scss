@@ -1,0 +1,151 @@
+//= require actiontext
+@import 'bootstrap/scss/bootstrap';
+
+.body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.5em;
+}
+
+.btn {
+   // border: none;
+    border-radius: 0%;
+}
+table {
+    max-width: 100% !important;
+}
+
+.form-control {
+    border-radius: 0% !important;
+    height: auto;
+}
+
+.trix-button-group {
+    border-radius: 0% !important;
+    background-color: #fff;
+}
+
+.card {
+    border-radius: 0;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    height: 60px;
+    margin-top: 20px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+#page_title {
+    margin-top: 20px;
+}
+#games-index {
+    text-align: center;
+    max-width: 110%;
+    background-color: #f8f9fa;
+    padding: 0 30px 30px 30px;
+    display:block;
+
+    margin-left: -15px;
+    margin-right: -15px;
+}
+  
+#games-index img {
+    width: 100%;
+    border: 1px #333 ;
+}
+
+#games-index .btn {
+    width: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#games-index a {
+    text-decoration: none !important;
+}
+
+.game_box { 
+    border: 1px solid rgb(203, 203, 255);
+    padding: 20px;
+}
+    .game_box:hover {
+            background: rgb(243, 243, 255);
+    }
+
+
+.header {
+    background: #333;
+    color: #fff;
+    height: 80px;
+    margin-bottom: 15px;
+    flex-wrap: nowrap;
+}
+
+#btn_borrow {
+    margin-top: 15px;
+}
+
+#coloana_descriere_totala{
+    padding-top: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+#games-show img {
+    width: 100%;
+}
+
+#div_pt_trailer {
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+#div_pt_trailer iframe {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+input[type="checkbox"] {
+    outline:2px solid #e07b52;
+    outline-offset: -2px;
+    filter: hue-rotate(180deg) brightness(1.0);
+  }
+
+label {
+    width: 100%;
+}
+
+.dropdown-menu small{
+    padding-right: 6px ;
+}
+
+.myrow {
+    display: flex;
+}
+
+.myrow nav {
+    position: relative;
+    display: flex;
+   // right: 0;
+    margin-right: 0 !important;
+    margin-left: auto;
+}
+
+.dropdown-menu {
+    margin: 0;
+}

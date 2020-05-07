@@ -1,0 +1,42 @@
+<nav class="navbar-expand-lg navbar-light bg-light">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sort by
+                </a>
+                <div class="dropdown-menu">
+                    <% @active = ""%>
+                    <% @active = " active" unless  Game.sort_order != "newest"%>
+                    <%= link_to  "Newest", games_path(sort_by: "newest"), class: 'dropdown-item'+@active %>
+                
+                    <% @active = ""%>
+                    <% @active = " active" unless  Game.sort_order != "oldest"%>
+                    <%= link_to  "Oldest", games_path(sort_by: "oldest"), class: 'dropdown-item'+@active %>
+
+                    <% @active = ""%>
+                    <% @active = " active" unless  Game.sort_order != "popularity"%>
+                    <%= link_to  "Most popular", games_path(  sort_by: "popularity"),  class:'dropdown-item'+@active%>
+                    </div>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Platform Filter
+                </a>
+                <div class="dropdown-menu">
+                    <%= form_tag(games_path, method: "get") do %>
+                        <% Platform.all.each do |platform| %>
+                            <div class="checkbox dropdown-item">
+                                <%= check_box_tag platform.name, 1, Platform.platform_filter[platform.id], onchange: 'this.form.submit()'%>
+                                <%= label_tag platform.name, platform.name %>
+                            </div>
+                        <%end%>
+                        <small class='disabled dropdown-item'>At least 1 platform!</small>
+                       <!-- <%= submit_tag "Filter", name: nil, class: 'btn btn-primary btn-sm dropdown-item'%>-->
+                    <%end%> 
+                </div>
+            </li>
+        </ul>
+</nav>

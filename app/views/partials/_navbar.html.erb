@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <%= link_to  "GameStore", games_path , class: 'navbar-brand'%>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="form-inline my-2 my-lg-0">
+            <%= render  "partials/search" %>
+        </form>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <%if user_signed_in? %>
+                    <%= current_user.email %>
+                    <%else%>
+                    My Account
+                    <%end%>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <%if user_signed_in? %>
+                    <%= link_to  "My Games", mygames_path, class: 'dropdown-item' %>
+                    <%= link_to  "Edit Account", edit_user_registration_path, class: 'dropdown-item' %>
+                    <%else%>
+                    <%= link_to  "Sign_in", user_session_path, class: 'dropdown-item' %>
+                    <%end%>
+
+                    <div class="dropdown-divider"></div>
+                    <% if user_signed_in? %>
+                    <%= link_to  "Sign_out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                    <% else %>
+                    <%= link_to  "Sign_up",  new_user_registration_path, class: 'dropdown-item'%>
+                    <%end%>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</nav>

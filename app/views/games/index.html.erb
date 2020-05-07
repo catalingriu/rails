@@ -1,0 +1,29 @@
+<div id="games-index">
+    <div class="myrow">
+         <%= render 'partials/filter_form'%>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <%if (@games != nil) %>
+                <%@games.each_slice(4) do |games3| %>
+                <div class="row">
+                    <% games3.each do |game| %>
+                    <a href="<%=game_path(game)%>">
+                        <div class="col-md-3 col-sm-3 game_box">
+                            <p><%=game.name%></p>
+                            <%= image_tag game.avatar.url %>
+                            <%= link_to  "Read More", game_path(game), class: 'btn btn-primary' %>
+                        </div>
+                    </a>
+                    <%end%>
+                </div>
+                <%end%>
+              
+            <%end%>
+        </div>
+        
+ 
+    </div>
+</div>
+
+

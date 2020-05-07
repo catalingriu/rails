@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3>Dear, <%= @loan.user.email %></h3>
+    <p>
+      We hope you had a great time playing <b> <%=@loan.game.name%> </b><br>
+    </p>
+    <p>
+        Unfortunately your loan period ended at <%=@loan.started_at+Loan.till_retrieve%>, so <b> the game was automatically returned! </b>
+    </p>
+    <p>
+        Now you can go to our website and borrow another game.
+    </p>
+
+    <p>Thanks for your atention and have a great day!</p>
+    <%=  link_to  "Click here to view our new games", "http://localhost:3000/games/" %>
+  </body>
+</html>

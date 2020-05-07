@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card card-body bg-light">
+      <div class='container'>
+        <div class="card-body">
+          <%@loans = @all_loans.where(ended_at: nil).reverse%>
+          <h2 class="card-title">My Games <%= link_to  "Get more", games_path, class: 'btn btn-success' %></h2>
+          <table class="table table-striped">
+              <tr>
+                <th>Game </th>
+                <th>Borrowed At</th>
+                <th>Return Till</th>
+                <th>Actions </th>
+              </tr>
+              <% @loans.each do |loan| %>
+                <tr>
+                  <td><%= loan.game.name %></td>
+                  <td><%= loan.started_at.to_time.in_time_zone("Europe/Bucharest").strftime('%d %b %Y at %H:%M') %></td>
+                  <td><%= (loan.started_at.to_time+Loan::TILL_RETRIEVE).in_time_zone("Europe/Bucharest").strftime('%d %b %Y at %H:%M')%></td>
+                  <td><%= link_to 'Show', game_path(loan.game), class:'btn btn-primary'%>
+                      <%= link_to 'PLAY',  mygames_path, data: { confirm: 'Function not available yet.' }, class:'btn btn-success' %>
+                      <%= link_to 'Return', return_path(loan.game), data: { confirm: 'Do you want to return the game?' }, class:'btn btn-danger' %>
+
+                  </td>
+                  
+                </tr>
+              <% end %>
+
+            <%@loans = @all_loans.where.not(ended_at: nil)%>
+          </table>
+          <br>
+          <br>
+           <h3 class="card-title">My Previous Loans</h3>
+          <table class="table table-striped">
+              <tr>
+                <th>Game </th>
+                <th>Borrowed At</th>
+                <th>Returned At</th>
+                <th>Actions </th>
+              </tr>
+              <% @loans.each do |loan| %>
+                <tr>
+                  <td><%= loan.game.name %></td>
+                  <td><%= loan.started_at.to_time.in_time_zone("Europe/Bucharest").strftime('%d %b %Y at %H:%M') %></td>
+                  <td><%= loan.ended_at.to_time.in_time_zone("Europe/Bucharest").strftime('%d %b %Y at %H:%M') %></td>
+                  <td><%= link_to 'Show', game_path(loan.game), class:'btn btn-primary'%>
+                  </td>
+                  
+                </tr>
+              <% end %>
+          </table>
+       <%=will_paginate @loans%>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,25 @@
+<%if params[:controller] == 'admin/games' || params[:controller] == 'games'%>
+    <%= form_tag( admin_games_path, method: 'get', id: 'search-form', class: 'search-form') do %>
+        <div class='form-group'>
+            <%= text_field_tag :search, params[:search], placeholder: 'Search Games', class: 'form-control' %>
+        </div>
+        <%=submit_tag "Search", name: nil, class: 'btn btn-primary'%>
+    <% end %>
+
+<%elsif params[:controller] == 'admin/platforms'%>
+    <%= form_tag( admin_platforms_path, method: 'get', id: 'search-form', class: 'search-form') do %>
+        <div class='form-group'>
+            <%= text_field_tag :search, params[:search], placeholder: 'Search Platforms', class: 'form-control' %>
+        </div>
+        <%=submit_tag "Search", name: nil, class: 'btn btn-primary'%>
+    <% end %>
+
+<%elsif params[:controller] == 'admin/users'%>
+    <%= form_tag( admin_users_path, method: 'get', id: 'search-form', class: 'search-form') do %>
+        <div class='form-group'>
+            <%= text_field_tag :search, params[:search], placeholder: 'Search User', class: 'form-control' %>
+        </div>
+        <%=submit_tag "Search", name: nil, class: 'btn btn-primary'%>
+    <%end%>
+
+<%end%>
