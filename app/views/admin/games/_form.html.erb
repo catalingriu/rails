@@ -29,9 +29,8 @@
 <div class="field">
   <%= form.label "Platforms" %><br />
   <%= form.collection_check_boxes :platform_ids, Platform.all, :id, :name do |b| %>
-    <div class="collection-check-box">
-      <%= b.check_box %>
-      <%= b.label %>
+    <div class="">
+      <%= b.check_box %> <%= b.label %>
     </div>
   <% end %>
 </div><br>
@@ -48,7 +47,7 @@
 </div><br>
 
 <div class="field">
-    <%= form.label 'Image' %>
+    <%= form.label 'Image (16:9)' %>
     <%= form.file_field :avatar, class: 'form-control'  %>
 </div><br>
 

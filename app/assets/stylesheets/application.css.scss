@@ -42,6 +42,7 @@ footer {
 #page_title {
     margin-top: 20px;
 }
+
 #games-index {
     text-align: center;
     max-width: 110%;
@@ -72,9 +73,10 @@ footer {
     border: 1px solid rgb(203, 203, 255);
     padding: 20px;
 }
-    .game_box:hover {
-            background: rgb(243, 243, 255);
-    }
+
+.game_box:hover {
+        background: rgb(243, 243, 255);
+}
 
 
 .header {
@@ -126,7 +128,7 @@ input[type="checkbox"] {
     filter: hue-rotate(180deg) brightness(1.0);
   }
 
-label {
+#games-index label {
     width: 100%;
 }
 

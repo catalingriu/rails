@@ -17,7 +17,7 @@
                   <td><%= link_to 'View', admin_game_path(game), class:'btn btn-success'%>
                       <%= link_to 'Edit', edit_admin_game_path(game), class:'btn btn-primary' %>
                       <%= link_to 'Destroy', admin_game_path(game), method: :delete, data: { confirm: "  Are you sure? \n  (The history of this game will be deleted)" }, class:'btn btn-danger' %>
-                      <%= link_to 'Hide', admin_hide_path(game), class: 'btn btn-primary' %>
+                      <%= link_to 'Hide', admin_hide_path(game), class: 'btn btn-primary disabled' %>
                   </td>
                   
                 </tr>
