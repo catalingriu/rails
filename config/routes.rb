@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'games#index'
   get '/games/:id/borrow', to: 'games#borrow', as: 'borrow'
   get '/games/:id/return', to: 'games#return', as: 'return'
+  get '/about', to: 'games#about', as: 'about'
 
   get '/mygames', to: 'games#mygames', as: 'mygames'
   namespace :admin do

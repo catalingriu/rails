@@ -84,6 +84,9 @@ class GamesController < ApplicationController
     @all_loans =  Loan.where("user_id = ?", current_user.id).order('ended_at DESC').paginate(per_page: 12, page: params[:page])
   end
 
+  def about
+  end
+
   private
   def set_game
     @game = Game.find(params[:id])
