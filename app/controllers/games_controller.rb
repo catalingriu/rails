@@ -19,7 +19,7 @@ class GamesController < ApplicationController
         end
       end
      
-      if(@game_ids.empty?)
+      if(@plaform_filter.empty?)
           Platform.all.each do |pl|
             @game_ids += pl.game_ids if Platform.platform_filter[pl.id] == 1
           end
@@ -28,7 +28,6 @@ class GamesController < ApplicationController
       end
 
       @games = @games.where(id: @game_ids) unless @game_ids.empty?
-      
       @games.paginate(per_page: 12, page: params[:page])
   end
 
