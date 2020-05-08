@@ -50,8 +50,8 @@ class GamesController < ApplicationController
       @new_loan = Loan.new(user_id: current_user.id, game_id: @game.id, started_at: Time.now)
 
       if @game.quantity>=0 && @new_loan.save && @game.save #to do try catch ? transaction
-          ReturnGameNotifierJob.set(wait: Loan::TILL_NOTIFICATION).perform_later(@new_loan)
-          RetrieveGameAfterDeadlineJob.set(wait: Loan::TILL_RETRIEVE).perform_later(@new_loan)
+          ReturnGameNotifierJob.set(wait: (@game.loan_period*0.8).minutes).perform_later(@new_loan)
+          RetrieveGameAfterDeadlineJob.set(wait: @game.loan_period.minutes).perform_later(@new_loan)
           redirect_to mygames_path, notice: 'Game was successfully borrowed.' 
       else
           redirect_to game_path(@game), notice: 'Not available.'
@@ -93,6 +93,6 @@ class GamesController < ApplicationController
   end
    
   def game_params
-    params.require(:game).permit(:name, :quantity, :year, :trailer, :avatar, :about)
+    params.require(:game).permit(:name, :quantity, :year, :trailer, :avatar, :about, :loan_period)
   end
 end

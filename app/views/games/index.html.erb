@@ -10,7 +10,7 @@
                     <% games3.each do |game| %>
                     <a href="<%=game_path(game)%>">
                         <div class="col-md-3 col-sm-3 game_box">
-                            <p><%=game.name%></p>
+                            <p class='title'><%=game.name%></p>
                             <%= image_tag game.avatar.url %>
                             <%= link_to  "Read More", game_path(game), class: 'btn btn-primary' %>
                         </div>

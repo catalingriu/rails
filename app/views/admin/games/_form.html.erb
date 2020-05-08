@@ -51,6 +51,11 @@
     <%= form.file_field :avatar, class: 'form-control'  %>
 </div><br>
 
+<div class="field">
+    <%= form.label 'Loan period in minutes' %>
+    <%= form.number_field :loan_period, class: 'form-control'  %>
+</div><br>
+
 <div class="actions">
     <%= form.submit(class: 'btn btn-primary')  %>
 </div>

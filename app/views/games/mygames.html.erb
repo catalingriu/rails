@@ -16,7 +16,7 @@
                 <tr>
                   <td><%= loan.game.name %></td>
                   <td><%= loan.started_at.to_time.in_time_zone("Europe/Bucharest").strftime('%d %b %Y at %H:%M') %></td>
-                  <td><%= (loan.started_at.to_time+Loan::TILL_RETRIEVE).in_time_zone("Europe/Bucharest").strftime('%d %b %Y at %H:%M')%></td>
+                  <td><%= (loan.started_at.to_time+loan.game.loan_period.minutes).in_time_zone("Europe/Bucharest").strftime('%d %b %Y at %H:%M')%></td>
                   <td><%= link_to 'Show', game_path(loan.game), class:'btn btn-primary'%>
                       <%= link_to 'PLAY',  mygames_path, data: { confirm: 'Function not available yet.' }, class:'btn btn-success disabled' %>
                       <%= link_to 'Return', return_path(loan.game), data: { confirm: 'Do you want to return the game?' }, class:'btn btn-danger' %>

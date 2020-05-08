@@ -63,6 +63,6 @@ class Admin::GamesController < Admin::ApplicationController
     end
 
     def game_params
-        params.require(:game).permit(:name, :quantity, :year, :trailer, :avatar, :about, platform_ids:[])
+        params.require(:game).permit(:name, :quantity, :year, :trailer, :avatar, :about, :loan_period, platform_ids:[])
     end
 end

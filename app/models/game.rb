@@ -6,6 +6,7 @@ class Game < ApplicationRecord
     
     has_rich_text :about
     validates :quantity, numericality: { greater_than: -1}
+    validates :platforms, :loan_period, presence: true
     has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "missing.jpg"
     validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
     

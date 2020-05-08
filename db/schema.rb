@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_27_152849) do
+ActiveRecord::Schema.define(version: 2020_05_08_111339) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2020_04_27_152849) do
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.text "about"
+    t.integer "loan_period"
     t.index ["user_id"], name: "index_games_on_user_id"
   end
 
