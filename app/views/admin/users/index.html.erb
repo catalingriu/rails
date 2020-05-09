@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card card-body bg-light">
+        <div class='container'>
+          <div class="card-body">
+          <h2 class="card-title">Manage Users</h2>
+          
+            
+            <table class="table table-striped">
+                <tr>
+                  <th>User </th>
+                  <th>Admin level</th>
+                  <th>Actions </th>
+                </tr>
+                <% @users.each do |user| %>
+                  <tr>
+                    <td><%= user.email %></td>
+                    <td><%= user.isadmin %>
+                    <td> 
+                        <%= link_to 'Make admin',  admin_change_admin_path(user, level: 1), class: 'btn btn-danger' if user.isadmin == 0 || user.isadmin.nil? %>
+                        <%= link_to  "Remove admin", admin_change_admin_path(user, level: 0), class: 'btn btn-danger' if user.isadmin == 1%>
+                    </td>
+                  </tr>
+                <% end %>
+            </table>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

@@ -6,4 +6,10 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  attribute :isadmin, :integer, default: 0
+  
+  def self.search(query)
+    where("email like ?", "%#{query}%")
+   end
 end
