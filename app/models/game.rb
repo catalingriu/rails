@@ -16,7 +16,8 @@ class Game < ApplicationRecord
     end
 
     def self.search(query)
-         where("name like ? OR about like ? OR year like ?", "%#{query}%", "%#{query}%", "%#{query}%")
+         #where("name like ? OR about like ? OR year like ?", "%#{query}%", "%#{query}%", "%#{query}%")
+         where("name like ?", "%#{query}%")
     end
 
     def self.order_list(sort_order)
