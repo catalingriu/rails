@@ -34,6 +34,7 @@ class GamesController < ApplicationController
 
 
   def show
+    @loan = Loan.find_by(game_id: @game.id, user_id: current_user.id, ended_at: nil) unless current_user.nil?
   end
 
 

@@ -1,17 +1,17 @@
 class RetrieveGameAfterDeadlineJob < ApplicationJob
   queue_as :default
 
-  def perform(*loan)
-    if loan[0].ended_at.nil?
+  def perform(loan)
+    if loan.ended_at.nil?
 
-      @game = loan[0].game; #?transaction
+      @game = loan.game;
       @game.quantity += 1;
       @game.save;
   
-      loan[0].ended_at = Time.now;
-      loan[0].save;
+      loan.ended_at = Time.now;
+      loan.save;
 
-      UserMailer.with(loan: loan[0]).notify_auto_return_done.deliver_now
+      UserMailer.with(loan: loan).notify_auto_return_done.deliver_later
     end
   end
 end
