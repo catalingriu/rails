@@ -10,6 +10,6 @@ class User < ApplicationRecord
   attribute :isadmin, :integer, default: 0
   
   def self.search(query)
-    where("email like ?", "%#{query}%")
+    where("LOWER(email) like '%#{query.lower}%'")
    end
 end

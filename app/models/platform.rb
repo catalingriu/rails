@@ -1,7 +1,7 @@
 class Platform < ApplicationRecord
     has_and_belongs_to_many :games
     def self.search(query)
-        where("name like ?", "%#{query}%")
+        where("LOWER(name) like '%#{query.lower}%'")
     end
 
     @@platform_filter = []
