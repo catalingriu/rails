@@ -1,4 +1,4 @@
-import 'bootstrap'
+
 
 require("@rails/ujs").start()
 require("turbolinks").start()
@@ -20,3 +20,5 @@ require("channels")
     
 require("trix")
 require("@rails/actiontext")
+
+import "bootstrap"
