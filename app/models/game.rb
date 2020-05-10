@@ -17,7 +17,7 @@ class Game < ApplicationRecord
 
     def self.search(query)
          #where("name like ? OR about like ? OR year like ?", "%#{query}%", "%#{query}%", "%#{query}%")
-         where("LOWER(name) like '%#{query.lower}%'")
+         where("LOWER(name) like ?", "%#{query}%")
     end
 
     def self.order_list(sort_order)
