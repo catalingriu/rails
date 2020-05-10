@@ -11,7 +11,9 @@ class Admin::UsersController < Admin::ApplicationController
    def change_admin
         @level_to_become = params[:level].to_i
         @user = User.find(params[:id])
-
+        
+        @user.isadmin = 0 if @user.isadmin.nil?
+        
         if @user.isadmin >= current_user.isadmin || @level_to_become >= current_user.isadmin || @level_to_become<0
             redirect_to admin_users_path, alert: 'Permission denied'
         else
