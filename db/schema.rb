@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2020_05_09_144211) do
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id", default: 1, null: false
     t.integer "year"
     t.string "trailer"
     t.string "avatar_file_name"
@@ -90,7 +89,7 @@ ActiveRecord::Schema.define(version: 2020_05_09_144211) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "isadmin"
+    t.integer "isadmin", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
