@@ -6,5 +6,5 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
    # Game.create!({name: 'DOTA 4', platform_id: platforms[0].id, quantity: 1, loan_period: 1})
-  # user = User.create! email: 'johnjohn@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', isadmin: 2
-  platforms = Platform.create!([{name:'PQ'}, {name:'pw'}])
+  user = User.create! email: 'johnjohn@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', isadmin: 2
+  platforms = Platform.create!([{name:'PC'}, {name:'PS'}, {name: 'Xbox'}])
