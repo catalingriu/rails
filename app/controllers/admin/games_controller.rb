@@ -22,6 +22,7 @@ class Admin::GamesController < Admin::ApplicationController
     def create
         @game = Game.new(game_params)
         @game.avatar = File.open('app/assets/images/missing.jpg')
+        @game.img_path = 'missing.jpg'
         respond_to do |format|
           if @game.save
             format.html { redirect_to admin_game_path(@game), notice: 'Game was successfully created.' }

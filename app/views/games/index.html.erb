@@ -11,7 +11,7 @@
                     <a href="<%=game_path(game)%>">
                         <div class="col-md-3 col-sm-3 game_box">
                             <p class='title'><%=game.name%></p>
-                            <%= image_tag game.avatar.url %>
+                            <%= image_tag game.img_path unless game.img_path.nil?%>
                             <%= link_to  "Read More", game_path(game), class: 'btn btn-primary' %>
                         </div>
                     </a>
