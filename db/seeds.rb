@@ -9,10 +9,6 @@
   user = User.create! email: 'johnjohn@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', isadmin: 2
   platforms = Platform.create!([{name:'PC'}, {name:'PS'}, {name: 'Xbox'}])
   
-
-  loans = Loan.create!([
-     {}
-  ])
   games = Game.create!([
      {name: "Grand Theft Auto V", quantity: 997, year: 2013, trailer: "VjZ5tgjPVfU", loan_period: 5, platforms: platforms[0,1] },
      {name: "Counter-Strike: Global Offensive", quantity: 999, year: 2010, trailer: "edYCtaNueQY", loan_period: 5,  platforms: platforms[0,2]},
