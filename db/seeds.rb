@@ -9,7 +9,7 @@
   user = User.create! email: 'johnjohn@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', isadmin: 2
   platforms = Platform.create!([{name:'PC'}, {name:'PS'}, {name: 'Xbox'}])
 
-  games = Game.creat!([
+  games = Game.create!([
      {name: "Grand Theft Auto V", quantity: 997, year: 2013, trailer: "VjZ5tgjPVfU", loan_period: 5, platform: platforms[0] },
      {name: "Counter-Strike: Global Offensive", quantity: 999, year: 2010, trailer: "edYCtaNueQY", loan_period: 5,  platform: platforms[0]},
      {name: "Need for Speed: Most Wanted", quantity: 999, year: 2005, trailer: "DEmRkNnCvLU", loan_period: 5,  platform: platforms[0]},
